@@ -39,9 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void startQuiz(){
         Intent intent = new Intent(this, Question.class);
-        intent.putExtra("numberOfQuestions",0);
-        intent.putExtra("numberOfCorrectAnswers",0);
-        intent.putExtra("questionNumbers", new int[10]);
         startActivity(intent);
     }
 }

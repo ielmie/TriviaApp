@@ -42,6 +42,9 @@ public class Results extends AppCompatActivity {
             resultScreen.setText(inCorrect);
         }
 
+        for(int i=0;i<questionOrder.length;i++){
+            System.out.println(questionOrder[i]);
+        }
 
         buttonContinue = (Button) findViewById(R.id.buttonContinue);
         buttonContinue.setText("Continue");
@@ -76,6 +79,5 @@ public class Results extends AppCompatActivity {
         intents.putExtra("questionNumbers", questionOrder);
         startActivity(intents);
     }
-
 
 }
