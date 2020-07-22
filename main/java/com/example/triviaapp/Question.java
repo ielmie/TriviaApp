@@ -19,7 +19,7 @@ import java.util.Random;
 public class Question extends AppCompatActivity {
     Button Answer1button, Answer2button, Answer3button, Answer4button;
     TextView screen, questionNumberDisplay;
-    final static int numberOfQuestions = 13;
+    final static int numberOfQuestions = 30;
     int questionNum;
     int numberOfCorrectAnswers;
     int[] questionOrder= new int[10];
