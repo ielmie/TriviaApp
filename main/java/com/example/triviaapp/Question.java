@@ -18,7 +18,7 @@ import java.util.Random;
 
 public class Question extends AppCompatActivity {
     Button Answer1button, Answer2button, Answer3button, Answer4button;
-    TextView screen;
+    TextView screen, questionNumberDisplay;
     final static int numberOfQuestions = 13;
     int questionNum;
     int numberOfCorrectAnswers;
@@ -62,6 +62,11 @@ public class Question extends AppCompatActivity {
         //To prevent the correct answer from always being in the same location.
         //By shuffling the answerOrder array.
         shuffleArray(answerOrder);
+
+        //Initializing the number display in the conner and setting the text
+        //To be equal to the question number they are at +1 / 10
+        questionNumberDisplay = (TextView) findViewById(R.id.questionNumberDisplay);
+        questionNumberDisplay.setText(Integer.toString(questionNum+1)+"/10");
 
         //Initializing the TextView and setting the text to be the question
         screen = (TextView) findViewById(R.id.screen);
