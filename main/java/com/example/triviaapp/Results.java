@@ -4,6 +4,7 @@ package com.example.triviaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,8 +19,8 @@ public class Results extends AppCompatActivity {
     int numberOfCorrectAnswers;
     int[] questionOrder;
     boolean resultsCorrect;
-    String correct = "correct";
-    String inCorrect = "Incorrect";
+    String correct = "CORRECT";
+    String inCorrect = "INCORRECT";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +38,14 @@ public class Results extends AppCompatActivity {
         resultScreen = (TextView) findViewById(R.id.resultScreen);
         if(resultsCorrect){
             resultScreen.setText(correct);
+            resultScreen.setTextColor(Color.parseColor("#27b21a"));
         }
         if(!resultsCorrect){
             resultScreen.setText(inCorrect);
+            resultScreen.setTextColor(Color.parseColor("#a70000"));
         }
 
         for(int i=0;i<questionOrder.length;i++){
-            System.out.println(questionOrder[i]);
         }
 
         buttonContinue = (Button) findViewById(R.id.buttonContinue);
@@ -67,11 +69,16 @@ public class Results extends AppCompatActivity {
 
     }
 
+    //Method that creates an intent to return to the main menu
+    //then starts that activity
     public void returnToMenu(){
         Intent in = new Intent(this, MainActivity.class);
         startActivity(in);
     }
 
+    //Method that creates an intent to go to the next question activity
+    //adds Extras with the information necessary
+    //then starts that activity
     public void startNextQuestion(){
         Intent intents = new Intent(this, Question.class);
         intents.putExtra("numberOfQuestions", questionNum);

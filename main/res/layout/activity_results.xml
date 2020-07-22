@@ -23,6 +23,8 @@
         android:layout_height="247dp"
         android:layout_marginTop="186dp"
         android:layout_marginBottom="140dp"
+        android:textAlignment="center"
+        android:textSize="50sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonContinue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"

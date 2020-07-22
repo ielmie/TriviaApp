@@ -109,6 +109,10 @@ public class Question extends AppCompatActivity {
 
     }
 
+    //Method that takes an integer and fills a pre-existing integer array of size 10
+    //with random unique numbers in the range (0,numberOfQuestions)
+    //These are used to determine which questions to extract from the questionFile
+    //Note: this method calls the shuffleArray method
     public void generateQuestionNumber(int numberOfQuestions){
         int[] tempArray = new int[numberOfQuestions];
         for(int j=0; j<tempArray.length;j++){ tempArray[j]=j;}
@@ -118,11 +122,14 @@ public class Question extends AppCompatActivity {
         }
     }
 
+    //Method that takes a fileName, an int[] and a number as input
+    //It opens the file and reads the lines corresponding to the question number as well as the answers
+    //and assigns them to the following variables for future use:
+    //questionText, correctAnswer, DecoyAnswer1, DecoyAnswer2, DecoyAnswer3
     public void getQuestionFromFile(String fileName, int[] array, int questionNumber){
         try{
             InputStream is = getAssets().open(fileName);
             BufferedReader readBuffer = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
-            System.out.println(array[questionNumber]);
             for (int line = 1; line <= (numberOfQuestions * 5); line++) {
                 if (line == ((array[questionNumber] * 5) + 1)) {
                     questionText = readBuffer.readLine();
@@ -147,6 +154,9 @@ public class Question extends AppCompatActivity {
         }
     }
 
+    //Method that takes an int[] as input
+    //It will modify the order of the elements in the array randomly
+    // by changing the array and return nothing
     public void shuffleArray(int[] array){
         Random rand = new Random();
         for(int i=0; i<array.length; i++){
@@ -157,6 +167,10 @@ public class Question extends AppCompatActivity {
         }
     }
 
+    //Method that returns a boolean that represents whether or not the text is the correct answer
+    //It takes as input an array a number (which denotes the position in said array) and a button
+    //It will assign the text to the button that corresponds with a specific case
+    //Then return false unless the text is equivalent to the correctAnswer
     public boolean assignTextToButton(int number, Button button, int[] array){
         boolean isTrue = false;
          switch(array[number]){
@@ -180,6 +194,9 @@ public class Question extends AppCompatActivity {
          return isTrue;
      }
 
+    //Method that creates an intent to go to the results page
+    //adds the extra information that needs to be transmitted to the results page
+    //and starts the results activity
     public void goToResultsActivity(boolean isTrue){
         Intent intents = new Intent(this, Results.class);
         intents.putExtra("numberOfQuestions", questionNum+1);

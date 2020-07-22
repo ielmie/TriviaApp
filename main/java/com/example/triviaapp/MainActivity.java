@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Method that creates an intent to go to the question class
+    //Then starts that activity
     public void startQuiz(){
         Intent intent = new Intent(this, Question.class);
         startActivity(intent);
