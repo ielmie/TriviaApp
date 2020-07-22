@@ -69,7 +69,8 @@ public class Results extends AppCompatActivity {
 
     }
 
-    //Method that creates an intent to return to the main menu
+    //Method that creates an intent to go to the score page
+    // adds Extras with the information necessary
     //then starts that activity
     public void goToScore(){
         Intent in = new Intent(this, Score.class);
