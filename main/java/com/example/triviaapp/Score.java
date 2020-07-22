@@ -45,10 +45,10 @@ public class Score extends AppCompatActivity {
     public void addScoreToTextView(int number, TextView tv){
         if(number<6){
 
-            tv.setText("You got "+ Integer.toString(number)+"/10"+" Better luck next time!");
+            tv.setText("You got "+ Integer.toString(number)+"/10."+" Better luck next time!");
         }
         else{
-            tv.setText("You got "+ Integer.toString(number)+"/10"+" Congratulations!");
+            tv.setText("You got "+ Integer.toString(number)+"/10."+" Congratulations!");
         }
     }
 
