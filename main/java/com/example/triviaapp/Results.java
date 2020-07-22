@@ -58,7 +58,7 @@ public class Results extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(questionNum>=10){
-                    returnToMenu();
+                    goToScore();
                 }
                 else{
                     startNextQuestion();
@@ -71,8 +71,9 @@ public class Results extends AppCompatActivity {
 
     //Method that creates an intent to return to the main menu
     //then starts that activity
-    public void returnToMenu(){
-        Intent in = new Intent(this, MainActivity.class);
+    public void goToScore(){
+        Intent in = new Intent(this, Score.class);
+        in.putExtra("numberOfCorrect", numberOfCorrectAnswers);
         startActivity(in);
     }
 
