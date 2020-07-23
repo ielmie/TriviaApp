@@ -25,36 +25,14 @@
         android:text="@string/start" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="163dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/Title"
+        android:layout_width="264dp"
+        android:layout_height="301dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="85dp"
-        android:text="@string/_10"
         android:textAlignment="center"
-        android:textSize="50sp" />
+        android:textSize="60sp" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="257dp"
-        android:layout_height="78dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="162dp"
-        android:text="@string/question"
-        android:textAlignment="center"
-        android:textSize="50sp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="156dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="255dp"
-        android:text="@string/quiz"
-        android:textAlignment="center"
-        android:textSize="50sp" />
 
 </RelativeLayout>

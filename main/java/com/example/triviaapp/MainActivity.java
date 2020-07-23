@@ -7,10 +7,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
    Button quitButton, startButton;
+   TextView Title;
+   String title = "10 Question Quiz";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
                 System.exit(0);
             }
         });
+
+        //Initializes the title TextView
+        //And assigns the title as text
+        Title = (TextView) findViewById(R.id.Title);
+        Title.setText(title);
 
         //Initializes the start Button
         //When clicked it causes the app to go to the quiz activity
