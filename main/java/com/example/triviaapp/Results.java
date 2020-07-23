@@ -53,7 +53,7 @@ public class Results extends AppCompatActivity {
         buttonContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(questionNum>=10){
+                if(questionNum>=questionOrder.length){
                     goToScore();
                 }
                 else{
@@ -81,6 +81,7 @@ public class Results extends AppCompatActivity {
     public void goToScore(){
         Intent in = new Intent(this, Score.class);
         in.putExtra("numberOfCorrect", numberOfCorrectAnswers);
+        in.putExtra("questionNumbers", questionOrder);
         startActivity(in);
     }
 
