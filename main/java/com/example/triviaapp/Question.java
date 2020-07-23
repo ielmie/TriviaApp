@@ -23,7 +23,7 @@ public class Question extends AppCompatActivity {
     int questionNum;
     int numberOfCorrectAnswers;
     int[] questionOrder;
-    String fileName = "triviaQuestions.txt";
+    String fileName = "";
     String questionText = "";
     String correctAnswer = "";
     String decoyAnswer1 = "";
@@ -113,6 +113,7 @@ public class Question extends AppCompatActivity {
     //and assigns the values to the appropriate variables
     public void receiveInfoFromIntent() {
         Intent intent = getIntent();
+        fileName = intent.getStringExtra("FileName");
         numberOfCorrectAnswers = intent.getIntExtra("numberOfCorrectAnswers", 0);
         questionNum = intent.getIntExtra("numberOfQuestions", 0);
         questionOrder = intent.getIntArrayExtra("questionNumbers");
@@ -211,6 +212,7 @@ public class Question extends AppCompatActivity {
         intents.putExtra("numberOfQuestions", questionNum+1);
         intents.putExtra("questionNumbers", questionOrder);
         intents.putExtra("isCorrect", isTrue);
+        intents.putExtra("FileName", fileName);
         if(isTrue){
             intents.putExtra("numberOfCorrectAnswers",numberOfCorrectAnswers+1);
         }
@@ -218,5 +220,6 @@ public class Question extends AppCompatActivity {
             intents.putExtra("numberOfCorrectAnswers",numberOfCorrectAnswers);
         }
         startActivity(intents);
+        finish();
     }
 }
