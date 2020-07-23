@@ -13,6 +13,7 @@ public class Score extends AppCompatActivity {
     Button buttonToContinue;
     TextView scoreScreen;
     int numberOfCorrectAnswers;
+    int[] questionOrder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +25,7 @@ public class Score extends AppCompatActivity {
 
         //Initializes the textview
         scoreScreen = (TextView) findViewById(R.id.scoreScreen);
-        addScoreToTextView(numberOfCorrectAnswers,scoreScreen);
+        addScoreToTextView(numberOfCorrectAnswers,questionOrder, scoreScreen);
 
         //Creates the continue button
         //And the code for when the button is clicked
@@ -43,19 +44,20 @@ public class Score extends AppCompatActivity {
     //and assigns the values to the appropriate variables
     public void receiveInfoFromIntent() {
         Intent intent = getIntent();
-        numberOfCorrectAnswers = intent.getIntExtra("numberOfCorrectAnswers",0);
+        numberOfCorrectAnswers = intent.getIntExtra("numberOfCorrect",0);
+        questionOrder = intent.getIntArrayExtra("questionNumbers");
 
     }
 
     //Method that takes an integer and a Textview as input
     //And assigns the appropriate score text to said textView
-    public void addScoreToTextView(int number, TextView tv){
-        if(number<6){
+    public void addScoreToTextView(int number, int[] array, TextView tv){
+        if(number<((array.length/2)+1)){
 
-            tv.setText("You got "+ Integer.toString(number)+"/10."+" Better luck next time!");
+            tv.setText("You got "+ Integer.toString(number)+"/"+Integer.toString(array.length)+"."+" Better luck next time!");
         }
         else{
-            tv.setText("You got "+ Integer.toString(number)+"/10."+" Congratulations!");
+            tv.setText("You got "+ Integer.toString(number)+"/"+Integer.toString(array.length)+"."+" Congratulations!");
         }
     }
 

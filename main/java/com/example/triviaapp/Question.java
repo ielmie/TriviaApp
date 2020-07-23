@@ -61,7 +61,7 @@ public class Question extends AppCompatActivity {
         //Initializing the number display in the conner and setting the text
         //To be equal to the question number they are at +1 / 10
         questionNumberDisplay = (TextView) findViewById(R.id.questionNumberDisplay);
-        questionNumberDisplay.setText(Integer.toString(questionNum+1)+"/10");
+        questionNumberDisplay.setText(Integer.toString(questionNum+1)+"/"+Integer.toString(questionOrder.length));
 
         //Initializing the TextView and setting the text to be the question
         screen = (TextView) findViewById(R.id.screen);
