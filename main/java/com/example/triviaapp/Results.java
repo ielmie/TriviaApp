@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class Results extends AppCompatActivity {
 
     Button buttonContinue;
-    TextView resultScreen;
+    TextView resultScreen, correctAnswerScreen;
 
     int questionNum;
     int numberOfCorrectAnswers;
@@ -22,6 +22,7 @@ public class Results extends AppCompatActivity {
     String correct = "CORRECT";
     String inCorrect = "INCORRECT";
     String fileName = "";
+    String correctAnswer = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +32,9 @@ public class Results extends AppCompatActivity {
         // retrieves the data transmitted to it when it passes from one activity to the other
         receiveInfoFromIntent();
 
-        //Initializes the textView and Button and assigns the text to each
+        //Initializes the textViews and Button and assigns the text to each
         resultScreen = (TextView) findViewById(R.id.resultScreen);
+        correctAnswerScreen = (TextView) findViewById(R.id.correctAnswerScreen);
         if(resultsCorrect){
             resultScreen.setText(correct);
             resultScreen.setTextColor(Color.parseColor("#27b21a"));
@@ -40,9 +42,9 @@ public class Results extends AppCompatActivity {
         if(!resultsCorrect){
             resultScreen.setText(inCorrect);
             resultScreen.setTextColor(Color.parseColor("#a70000"));
-        }
+            correctAnswerScreen.setText("The correct answer was: "+correctAnswer);
+            correctAnswerScreen.setTextSize(20);
 
-        for(int i=0;i<questionOrder.length;i++){
         }
 
         buttonContinue = (Button) findViewById(R.id.buttonContinue);
@@ -75,6 +77,7 @@ public class Results extends AppCompatActivity {
         questionNum = intent.getIntExtra("numberOfQuestions",0);
         questionOrder = intent.getIntArrayExtra("questionNumbers");
         resultsCorrect = intent.getBooleanExtra("isCorrect", true);
+        correctAnswer = intent.getStringExtra("answer");
     }
 
     //Method that creates an intent to go to the score page

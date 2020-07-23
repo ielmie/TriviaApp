@@ -213,6 +213,7 @@ public class Question extends AppCompatActivity {
         intents.putExtra("questionNumbers", questionOrder);
         intents.putExtra("isCorrect", isTrue);
         intents.putExtra("FileName", fileName);
+        intents.putExtra("answer",correctAnswer);
         if(isTrue){
             intents.putExtra("numberOfCorrectAnswers",numberOfCorrectAnswers+1);
         }
