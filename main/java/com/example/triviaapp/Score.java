@@ -66,5 +66,6 @@ public class Score extends AppCompatActivity {
     public void returnToMenu(){
         Intent in = new Intent(this, MainActivity.class);
         startActivity(in);
+        finish();
     }
 }

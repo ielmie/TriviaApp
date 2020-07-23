@@ -21,6 +21,7 @@ public class Results extends AppCompatActivity {
     boolean resultsCorrect;
     String correct = "CORRECT";
     String inCorrect = "INCORRECT";
+    String fileName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +70,7 @@ public class Results extends AppCompatActivity {
     //and assigns the values to the appropriate variables
     public void receiveInfoFromIntent() {
         Intent intent = getIntent();
+        fileName = intent.getStringExtra("FileName");
         numberOfCorrectAnswers = intent.getIntExtra("numberOfCorrectAnswers",0);
         questionNum = intent.getIntExtra("numberOfQuestions",0);
         questionOrder = intent.getIntArrayExtra("questionNumbers");
@@ -83,6 +85,7 @@ public class Results extends AppCompatActivity {
         in.putExtra("numberOfCorrect", numberOfCorrectAnswers);
         in.putExtra("questionNumbers", questionOrder);
         startActivity(in);
+        finish();
     }
 
     //Method that creates an intent to go to the next question activity
@@ -93,7 +96,9 @@ public class Results extends AppCompatActivity {
         intents.putExtra("numberOfQuestions", questionNum);
         intents.putExtra("numberOfCorrectAnswers",numberOfCorrectAnswers);
         intents.putExtra("questionNumbers", questionOrder);
+        intents.putExtra("FileName", fileName);
         startActivity(intents);
+        finish();
     }
 
 }

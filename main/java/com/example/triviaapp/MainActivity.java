@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
    TextView Title;
    String title = "10 Question Quiz";
    int numberOfQuestionsAsked = 10;
+   String fileName = "triviaQuestions.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
         quitButton = (Button) findViewById(R.id.quitButton);
         quitButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+                finish();
                 System.exit(0);
+
             }
         });
 
@@ -51,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
     public void startQuiz(){
         Intent intent = new Intent(this, Question.class);
         intent.putExtra("questionNumbers", new int[numberOfQuestionsAsked]);
+        intent.putExtra("FileName", fileName);
         startActivity(intent);
+        finish();
     }
 }
