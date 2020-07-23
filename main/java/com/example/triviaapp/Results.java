@@ -28,11 +28,7 @@ public class Results extends AppCompatActivity {
         setContentView(R.layout.activity_results);
 
         // retrieves the data transmitted to it when it passes from one activity to the other
-        Intent intent = getIntent();
-        numberOfCorrectAnswers = intent.getIntExtra("numberOfCorrectAnswers",0);
-        questionNum = intent.getIntExtra("numberOfQuestions",0);
-        questionOrder = intent.getIntArrayExtra("questionNumbers");
-        resultsCorrect = intent.getBooleanExtra("isCorrect", true);
+        receiveInfoFromIntent();
 
         //Initializes the textView and Button and assigns the text to each
         resultScreen = (TextView) findViewById(R.id.resultScreen);
@@ -67,6 +63,16 @@ public class Results extends AppCompatActivity {
         });
 
 
+    }
+
+    //Method that gets the information from the previous activity
+    //and assigns the values to the appropriate variables
+    public void receiveInfoFromIntent() {
+        Intent intent = getIntent();
+        numberOfCorrectAnswers = intent.getIntExtra("numberOfCorrectAnswers",0);
+        questionNum = intent.getIntExtra("numberOfQuestions",0);
+        questionOrder = intent.getIntArrayExtra("questionNumbers");
+        resultsCorrect = intent.getBooleanExtra("isCorrect", true);
     }
 
     //Method that creates an intent to go to the score page

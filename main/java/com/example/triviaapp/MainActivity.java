@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
    Button quitButton, startButton;
    TextView Title;
    String title = "10 Question Quiz";
+   int numberOfQuestionsAsked = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     //Then starts that activity
     public void startQuiz(){
         Intent intent = new Intent(this, Question.class);
+        intent.putExtra("questionNumbers", new int[numberOfQuestionsAsked]);
         startActivity(intent);
     }
 }
