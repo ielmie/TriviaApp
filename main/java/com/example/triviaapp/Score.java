@@ -20,8 +20,7 @@ public class Score extends AppCompatActivity {
         setContentView(R.layout.activity_score);
 
         // retrieves the data transmitted to it when it passes from one activity to the other
-        Intent intent = getIntent();
-        numberOfCorrectAnswers = intent.getIntExtra("numberOfCorrect",0);
+        receiveInfoFromIntent();
 
         //Initializes the textview
         scoreScreen = (TextView) findViewById(R.id.scoreScreen);
@@ -37,6 +36,14 @@ public class Score extends AppCompatActivity {
                 returnToMenu();
             }
         });
+
+    }
+
+    //Method that gets the information from the previous activity
+    //and assigns the values to the appropriate variables
+    public void receiveInfoFromIntent() {
+        Intent intent = getIntent();
+        numberOfCorrectAnswers = intent.getIntExtra("numberOfCorrectAnswers",0);
 
     }
 
